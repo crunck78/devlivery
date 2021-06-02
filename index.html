@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Akademie Social Network</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    
+</head>
+
+<body onload="init();">
+    <header>
+        <div class="top-bar">
+            <div class="topbar-logo">
+                <a href="#">
+                    <img class="mr-16" height="16" src="img/arrow-89-48.png" alt="">
+                    <img height="28" src="img/logo_white.png" alt="">
+                </a>
+            </div>
+            <div class="location-container pointer">
+                Ihr Standort
+            </div>
+            <menu>
+                <button class="local pointer mr-16">
+                    DE
+                </button>
+                <img class="pointer" height="19" src="img/menu-4-48.png" alt="">
+            </menu>
+        </div>
+
+
+    </header>
+    <main>
+        <div class="main-content">
+            <div class="restaurant-img"></div>
+            <div class="logo-aligner">
+                <div class="restarant-log-container">
+                    <img class="restaurant-logo" src="img/DevLogo.jpeg" alt="">
+                </div>
+            </div>
+            <div class="restaurant-info">
+                <div class="name-and-ratings">
+                    <h1 class="restaurant-name">Dev Akademie</h1>
+                    <div class="ratings">
+                        <div class="rating-stars-container">
+                            <img src="img/star-23-48.png" alt=""><img src="img/star-23-48.png" alt=""><img
+                                src="img/star-23-48.png" alt=""><img src="img/star-23-48.png" alt=""><img
+                                src="img/star-23-48.png" alt="">
+                        </div>
+                        <span class="pointer">(100k Ratings)</span>
+
+                    </div>
+                </div>
+
+                <div class="about-and-fav">
+                    <button class="btn pointer"><img class="icon" src="img/info-2-48.png" alt=""></button>
+                    <button class="btn pointer"><img class="icon" src="img/favorite-3-48.png" alt=""></button>
+                </div>
+            </div>
+
+            <div class="menu-categories">
+                <img class="icon" src="img/search-13-48.png" alt="">
+                <div class="categories-list">
+                    <div id="categories-swiper" class="swiper-container">
+                        <!--Display Restaurant Menu Categories List Swiper-->
+                    </div>
+                </div>
+                <!-- <div class="swipe-list">
+                    <button class="swipe-right">">"</button>
+                    <button class="swipe-left">"<"< /button>
+                </div> -->
+            </div>
+            <div class="menu-card-container">
+                <div class="menu-categories-container">
+                    <!--Display Restaurant Menu-->
+                    <div id="category-card" class="category-card">
+                        <!--Display Categories-->
+                        <!--Display Category Meals-->
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
+        </div>
+
+        <div id="basket" class="basket-container">
+            <div class="basket-title-container">
+                <p class="basket-label">Basket</p>
+                <button id="close-basket" onclick="closeBasket()" class="basket-btn-close pointer">
+                    <img class="icon" src="img/x-mark-48.png" alt="">
+                </button>
+            </div>
+            <div class="basket-content">
+                <div class="basket-checkout">
+
+                    <div id="basket-empty" class="basket-empty d-none">
+                        <img class="icon" src="img/shopping-bag-2-48.png" alt="">
+                        <span class="basket-empty-text">Wähle leckere Gerichte aus der Karte und bestelle Dein
+                            Menü.</span>
+                    </div>
+
+                    <div id="products" class="basket-products">
+                        <!--Display Basäket Items-->
+                    </div>
+
+                    <div id="basket-sum" class="basket-sum">
+                        <div class="sub-total-container sum-row">
+                            <span class="sum-name">Zwischensumme</span><span id="subtotal-price" class="sum-price">0</span> €
+                        </div>
+
+                        <div id="delivery-container" class="delivery-container sum-row d-none">
+                            <span class="sum-name">Lieferkosten</span><span id="delivery-price" class="sum-price"></span> €
+                        </div>
+
+                        <div class="total-container sum-row">
+                            <span class="sum-name">Gesamt</span><span id="total-price" class="total-price">0</span> €
+                        </div>
+
+                        <div id="amount-to-reach" class="reach-container sum-row">
+                            <span class="sum-name">Benötigter Betrag, um den Mindestbestellwert zu erreichen</span>
+                            <span id="remain-price" class="sum-price"></span> €
+                        </div>
+                    </div>
+                    <div id="minimumamount-reached" class="minimumorderamount d-none">
+                        Du hast den Mindestbestellwert von
+                        <span id="minimumprice-reached" class="amount"></span> € erreicht und kannst jetzt fortfahren.
+                    </div>
+                    <div id="minimumamount-required" class="minimumorderamount d-none">
+                        Leider kannst Du noch nicht bestellen.Dev Akademie liefert erst ab einem
+                        Mindestbestellwert von <span id="minimumprice-required" class="amount"></span> € (exkl. Lieferkosten).
+                    </div>
+                </div>
+                <button id="order-btn" class="basket-order pointer">Bestellen</button>
+            </div>
+        </div>
+
+    </main>
+    <nav class="bottom-nav">
+        <div id="mobile-basket-opener" class="mobile-basket-opener d-none">
+            <button id="basket-btn-mobile" onclick="openBasket()" class="basket-btn-mobile">
+                <div class="basket-btn-mobile-info">
+                    <img class="icon" src="img/shopping-bag-2-48 (1).png" alt="">
+                    <span id="basket-opener-items" class="basket-btn-counter"></span>
+                </div>
+
+                <p>
+                    <span>Warenkorb</span>
+                    (<span id="basket-opener-price"></span> €)
+                </p>
+            </button>
+        </div>
+        <a id="to-top" href="#">
+            <img class="icon" src="img/arrow-141-48.png" alt="">
+        </a>
+    </nav>
+
+</body>
+
+</html>
