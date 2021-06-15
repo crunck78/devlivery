@@ -8,7 +8,7 @@
     <title>Developer Akademie Social Network</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    
+
 </head>
 
 <body onload="init();">
@@ -63,15 +63,23 @@
 
             <div class="menu-categories">
                 <img class="icon" src="img/search-13-48.png" alt="">
-                <div class="categories-list">
-                    <div id="categories-swiper" class="swiper-container">
-                        <!--Display Restaurant Menu Categories List Swiper-->
+                <div class="flex-row-center">
+                    <div class="swipe-list">
+                        <button class="swipe-left">
+                            <img class="icon" src="img/arrow-88-48.png" alt="">
+                        </button>
+                    </div>
+                    <div class="categories-list">
+                        <div id="categories-swiper" class="swiper-container">
+                            <!--Display Restaurant Menu Categories List Swiper-->
+                        </div>
+                    </div>
+                    <div class="swipe-list">
+                        <button class="swipe-right">
+                            <img class="icon" src="img/arrow-24-48.png" alt="">
+                        </button>
                     </div>
                 </div>
-                <!-- <div class="swipe-list">
-                    <button class="swipe-right">">"</button>
-                    <button class="swipe-left">"<"< /button>
-                </div> -->
             </div>
             <div class="menu-card-container">
                 <div class="menu-categories-container">
@@ -107,11 +115,13 @@
 
                     <div id="basket-sum" class="basket-sum">
                         <div class="sub-total-container sum-row">
-                            <span class="sum-name">Zwischensumme</span><span id="subtotal-price" class="sum-price">0</span> €
+                            <span class="sum-name">Zwischensumme</span><span id="subtotal-price"
+                                class="sum-price">0</span> €
                         </div>
 
                         <div id="delivery-container" class="delivery-container sum-row d-none">
-                            <span class="sum-name">Lieferkosten</span><span id="delivery-price" class="sum-price"></span> €
+                            <span class="sum-name">Lieferkosten</span><span id="delivery-price"
+                                class="sum-price"></span> €
                         </div>
 
                         <div class="total-container sum-row">
@@ -129,7 +139,8 @@
                     </div>
                     <div id="minimumamount-required" class="minimumorderamount d-none">
                         Leider kannst Du noch nicht bestellen.Dev Akademie liefert erst ab einem
-                        Mindestbestellwert von <span id="minimumprice-required" class="amount"></span> € (exkl. Lieferkosten).
+                        Mindestbestellwert von <span id="minimumprice-required" class="amount"></span> € (exkl.
+                        Lieferkosten).
                     </div>
                 </div>
                 <button id="order-btn" class="basket-order pointer">Bestellen</button>

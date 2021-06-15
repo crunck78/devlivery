@@ -39,16 +39,16 @@ const basket = {
         basket.setItemsCounter();
     },
 
-    setItemsCounter: ()=>{
+    setItemsCounter: () => {
         let counter = 0;
-        basket.items.forEach( item =>{
+        basket.items.forEach(item => {
             counter += item.amount;
         });
         basket.itemCounter = counter;
         document.getElementById("basket-opener-items").innerHTML = basket.itemCounter;
     },
 
-    init: () =>{
+    init: () => {
         document.getElementById("minimumprice-reached").innerHTML = restaurant.minimumAmount;
         document.getElementById("minimumprice-required").innerHTML = restaurant.minimumAmount;
     }
@@ -60,6 +60,13 @@ const restaurant = {
     mealCategories: {
         favoriteMeals: {
             meals: [
+                {
+                    category: 'favoriteMeals',
+                    name: 'Some Name',
+                    description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non deserunt itaque enim cumque natus maxime ea vero dignissimos ratione, maiores autem magni ullam quia error possimus odio quibusdam vel repellendus.',
+                    price: 15,
+                    extras: ''
+                },
                 {
                     category: 'favoriteMeals',
                     name: 'Some Name',
@@ -254,7 +261,7 @@ const showBasket = () => {
     basket.updatePrices();
 
     if (basket.items.length == 0) {
-       showEmptyBasket();
+        showEmptyBasket();
 
     } else {
         showBasketInfo();
@@ -264,7 +271,7 @@ const showBasket = () => {
     }
 }
 
-const showBasketInfo = () =>{
+const showBasketInfo = () => {
 
     document.getElementById("mobile-basket-opener").classList.remove("d-none");
     document.getElementById("basket-btn-mobile").classList.add("hightlight");
@@ -272,19 +279,19 @@ const showBasketInfo = () =>{
     setTimeout(() => {
         document.getElementById("basket-btn-mobile").classList.remove("hightlight");
     }, 500);
-    
+
     document.getElementById("basket-empty").classList.add("d-none");
 
     document.getElementById("delivery-container").classList.remove("d-none");
     document.getElementById("delivery-price").innerHTML = restaurant.deliveryPrice;
 
-    if(basket.amountToReach > 0){
+    if (basket.amountToReach > 0) {
         document.getElementById("amount-to-reach").classList.remove("d-none");
         document.getElementById("minimumamount-required").classList.remove("d-none");
 
         document.getElementById("minimumamount-reached").classList.add("d-none");
         document.getElementById("order-btn").classList.add("btn-disable");
-    }else{
+    } else {
         document.getElementById("amount-to-reach").classList.add("d-none");
         document.getElementById("minimumamount-required").classList.add("d-none");
 
@@ -324,14 +331,18 @@ const deleteFromBasket = (itemIndex) => {
     showBasket();
 }
 
-const openBasket = () =>{
+const openBasket = () => {
     document.getElementById("basket").classList.add("basket-container--opened");
 }
 
-const closeBasket = () =>{
+const closeBasket = () => {
     document.getElementById("basket").classList.remove("basket-container--opened");
 }
 
-const animateBasketOpener = () =>{
+const animateBasketOpener = () => {
 
+}
+
+function getItemAmountPrice(index) {
+    return shoppingBasketPrices[index] * shoppingBasketAmounts[index];
 }
