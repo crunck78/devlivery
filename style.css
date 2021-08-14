@@ -430,7 +430,9 @@ main {
 
 .categories-list {
     flex-grow: 1;
-    overflow: hidden;
+    overflow-x: hidden;
+    max-width: 80vw;
+    /* transition: all 225ms ease-in-out; */
 }
 
 .swiper-container {
@@ -676,6 +678,10 @@ main {
         background-color: #f6f6f6;
         color: #333;
     }
+
+    .categories-list{
+        max-width: 60vw;
+    }
 }
 
 .basket-btn-mobile-info {
@@ -760,7 +766,7 @@ main {
     width: 40px;
     height: 40px;
     line-height: 50px;
-    display: block;
+    display: none;
 }
 
 #to-top:hover {
@@ -811,4 +817,16 @@ footer{
 .swipe-list{
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.swipe-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px){
+    .categories-list{
+        max-width: 40vw;
+    }
 }

@@ -62,14 +62,14 @@ const restaurant = {
             meals: [
                 {
                     category: 'favoriteMeals',
-                    name: 'Some Name',
+                    name: 'Some Name Some Name',
                     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non deserunt itaque enim cumque natus maxime ea vero dignissimos ratione, maiores autem magni ullam quia error possimus odio quibusdam vel repellendus.',
                     price: 15,
                     extras: ''
                 },
                 {
                     category: 'favoriteMeals',
-                    name: 'Some Name',
+                    name: 'Some Name Some',
                     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non deserunt itaque enim cumque natus maxime ea vero dignissimos ratione, maiores autem magni ullam quia error possimus odio quibusdam vel repellendus.',
                     price: 15,
                     extras: ''
@@ -83,7 +83,7 @@ const restaurant = {
             meals: [
                 {
                     category: 'softDrinks',
-                    name: 'Some Name',
+                    name: 'Some Name Name',
                     description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non deserunt itaque enim cumque natus maxime ea vero dignissimos ratione, maiores autem magni ullam quia error possimus odio quibusdam vel repellendus.',
                     price: 20,
                     extras: ''
@@ -343,6 +343,18 @@ const animateBasketOpener = () => {
 
 }
 
-function getItemAmountPrice(index) {
+const getItemAmountPrice = (index) => {
     return shoppingBasketPrices[index] * shoppingBasketAmounts[index];
+}
+
+const swipeLeft = () => {
+    document.getElementById("categories-list").scrollLeft -= 100;
+}
+
+const swipeRight = () => {
+    document.getElementById("categories-list").scrollLeft += 100;
+}
+
+window.onscroll = () =>{
+   document.getElementById("to-top").style.display = window.scrollY > 0 ? "block" : "none";
 }
