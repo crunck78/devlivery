@@ -432,7 +432,7 @@ main {
     flex-grow: 1;
     overflow-x: hidden;
     max-width: 80vw;
-    /* transition: all 225ms ease-in-out; */
+    transition: all 225ms ease-in-out;
 }
 
 .swiper-container {
@@ -829,4 +829,8 @@ footer{
     .categories-list{
         max-width: 40vw;
     }
+}
+
+@keyframes scrollList{
+   
 }

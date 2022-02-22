@@ -348,13 +348,55 @@ const getItemAmountPrice = (index) => {
 }
 
 const swipeLeft = () => {
-    document.getElementById("categories-list").scrollLeft -= 100;
+    // document.getElementById("categories-list").scrollLeft -= 100;
+    let swiperBox = document.getElementById("categories-swiper").getBoundingClientRect();
+    console.log(swiperBox);
+    document.getElementById("categories-swiper").style.transform = `translate( -50px , 0)`;
+
 }
 
 const swipeRight = () => {
-    document.getElementById("categories-list").scrollLeft += 100;
+    let swiperBox = document.getElementById("categories-swiper").getBoundingClientRect();
+    console.log(swiperBox);
+    // document.getElementById("categories-list").scrollLeft += 100;
+    document.getElementById("categories-swiper").style.transform = `translate( 50px , 0)`;
 }
 
-window.onscroll = () =>{
-   document.getElementById("to-top").style.display = window.scrollY > 0 ? "block" : "none";
+window.onscroll = () => {
+    document.getElementById("to-top").style.display = window.scrollY > 0 ? "block" : "none";
+}
+
+
+function loadMeals() {
+    let mealGroup = document.getElementById('meal-group');
+    mealGroup.innerHTML = '';
+    let mealGroupContainer;
+    for (i = 0; i < restaurant.mealGroup.length; i++) {
+        let categoryImage = restaurant.mealGroup[i].categoryImage;
+        let categoryName = restaurant.mealGroup[i].categoryName;
+        mealGroup.innerHTML +=
+            `<div id="meal-group-container-${i}" class="meal-group-container"></div>`
+        mealGroupContainer = document.getElementById(`meal-group-container-${i}`);
+        if (categoryImage != '') {
+            mealGroupContainer.innerHTML += `<img class="meal-group-img" src="${categoryImage}" alt="">`
+        }
+        mealGroupContainer.innerHTML +=
+            `<div class="meal-group-text">${categoryName}</div>`
+
+        for (j = 0; j < restaurant.mealGroup[i].meals.length; j++) {
+            let mealName = restaurant.mealGroup[i].meals[j].mealName;
+            let mealDescription = restaurant.mealGroup[i].meals[j].mealDescription;
+            let mealPrice = restaurant.mealGroup[i].meals[j].mealPrice.toFixed(2);
+
+            mealGroup.innerHTML +=
+                `
+          <div class="dish-container">
+            <div class="meal-name">${mealName}<span class="product-info">Produktinfo</span></div>
+            <div class="meal-description">${mealDescription}</div>
+            <div class="price">${mealPrice}</div>
+            <img onclick="addToBasket('${mealName}', ${mealPrice})" class="add-icon" src="src/img/plus.png">
+          </div>
+        `
+        }
+    }
 }
