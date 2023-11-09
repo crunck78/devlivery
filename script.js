@@ -179,7 +179,7 @@ const generateCategoryCardHTML = (categoryValue) => {
                             <h3 class="category-name margin-0">${categoryValue.name}</h3>
                             <p>${categoryValue.description}</p>
                         </div>
-                    </div> 
+                    </div>
     `;
 }
 
@@ -291,12 +291,14 @@ const showBasketInfo = () => {
 
         document.getElementById("minimumamount-reached").classList.add("d-none");
         document.getElementById("order-btn").classList.add("btn-disable");
+        document.getElementById("order-btn").setAttribute("disabled", "true");
     } else {
         document.getElementById("amount-to-reach").classList.add("d-none");
         document.getElementById("minimumamount-required").classList.add("d-none");
 
         document.getElementById("minimumamount-reached").classList.remove("d-none");
         document.getElementById("order-btn").classList.remove("btn-disable");
+        document.getElementById("order-btn").removeAttribute("disabled");
     }
 }
 
@@ -307,6 +309,7 @@ const showEmptyBasket = () => {
     document.getElementById("minimumamount-required").classList.add("d-none");
     document.getElementById("minimumamount-reached").classList.add("d-none");
     document.getElementById("order-btn").classList.add("btn-disable");
+    document.getElementById("order-btn").setAttribute("disabled", "true");
     document.getElementById("mobile-basket-opener").classList.add("d-none");
 }
 

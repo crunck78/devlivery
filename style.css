@@ -20,7 +20,8 @@
     box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
     scroll-behavior: smooth;
 }
 
@@ -363,10 +364,10 @@ main {
     /* padding-top: calc(var(--logo-container-width-dekstop) / 2); */
 }
 
-.main-content{
+.main-content {
     width: calc(100% - var(--basket-width-dekstop));
     position: relative;
-   
+
 }
 
 .restaurant-info {
@@ -466,7 +467,7 @@ main {
     margin-top: 16px;
 }
 
-.menu-categories-container{
+.menu-categories-container {
     max-width: 1140px;
     margin: 0 auto;
 }
@@ -613,7 +614,7 @@ main {
     display: none !important;
 }
 
-.mobile-basket-opener{
+.mobile-basket-opener {
     display: none;
 }
 
@@ -633,18 +634,18 @@ main {
         width: var(--basket-width-mobile);
     }
 
-    .logo-aligner{
+    .logo-aligner {
         height: unset;
         position: relative;
         top: calc(var(--logo-container-width-mobile) * -0.5);
     }
 
-    .restarant-log-container{
+    .restarant-log-container {
         width: var(--logo-container-width-mobile);
         height: var(--logo-container-width-mobile);
     }
 
-    .restaurant-logo{
+    .restaurant-logo {
         border-radius: 100%;
     }
 
@@ -665,7 +666,7 @@ main {
         vertical-align: baseline;
         border: 0;
         outline: 0;
-    
+
         display: flex !important;
         align-items: center;
         justify-content: center;
@@ -673,13 +674,13 @@ main {
         height: 100%;
         background-color: white;
     }
-    
+
     .basket-btn-close:hover {
         background-color: #f6f6f6;
         color: #333;
     }
 
-    .categories-list{
+    .categories-list {
         max-width: 60vw;
     }
 }
@@ -786,7 +787,7 @@ main {
     height: 15px;
 }
 
-footer{
+footer {
     /* width: calc(100vw - 20px); */
     height: 200px;
     background-color: #0a3847;
@@ -794,43 +795,52 @@ footer{
     z-index: 3;
 }
 
-.hide-desktop{
+.hide-desktop {
     display: none;
 }
 
-.basket-btn-close{
+.basket-btn-close {
     display: none;
 }
 
-.hightlight{
+.hightlight {
     background-color: #ff8000 !important;
     transition: all 500ms ease-in-out;
 }
 
-.flex-row-center{
+.flex-row-center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
 }
 
-.swipe-list{
+.swipe-list {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.swipe-btn{
+.swipe-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@media (max-width: 600px){
-    .categories-list{
+#paypal-dialog {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+@media (max-width: 600px) {
+    .categories-list {
         max-width: 40vw;
     }
 }
 
-@keyframes scrollList{
-   
-}
+@keyframes scrollList {}

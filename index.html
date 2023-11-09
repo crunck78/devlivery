@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Akademie Social Network</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=CLIENT_ID&currency=EUR"></script>
+    <script src="paypal.js"></script>
+
     <script defer src="script.js"></script>
 
 </head>
@@ -143,7 +146,7 @@
                         Lieferkosten).
                     </div>
                 </div>
-                <button id="order-btn" class="basket-order pointer">Bestellen</button>
+                <button onclick="openPayPalDialog()" id="order-btn" class="basket-order pointer">Bestellen</button>
             </div>
         </div>
 
@@ -167,9 +170,12 @@
         </a>
     </nav>
 
+    <div onclick="closePayPalDialog()" id="paypal-dialog" class="d-none">
+        <div onclick="event.stopPropagation()" id="paypal-button-container"></div>
+    </div>
+
 </body>
 
 </html>
 
 
-  
